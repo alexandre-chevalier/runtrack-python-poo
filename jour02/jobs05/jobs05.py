@@ -41,10 +41,25 @@ class Voiture:
     def set_etat(self, etat):
         self.__enMarche = etat
 
-    def demarrer(self):
-        self.__enMarche = True
+    def set_reservoir(self, reserve):
+        self.__reservoir = reserve
+
+    def demarrer(self, reserve):
+        if reserve > 5:
+            print("votre voiture peut demarrer")
+            self.__enMarche = True
+        else:
+            print("votre voiture ne peut pas demarrer")
     
     def arreter(self):
         self.__enMarche = False
     
 
+voiture = Voiture("renault", "clio",1999,12000)
+
+print(voiture._verifier_plein())
+voiture.demarrer(voiture._verifier_plein())
+
+voiture.set_reservoir(4)
+print(voiture._verifier_plein())
+voiture.demarrer(voiture._verifier_plein())
