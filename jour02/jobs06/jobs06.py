@@ -37,11 +37,12 @@ class Commande:
         for i in liste:
             for j, char in enumerate(liste[i]):
                 total += liste[i][j]["prix"]
+                print(liste[i][j])
         
         return total
     
     def calcul_tva(self):
-        totalHt = self._total_commande(self.get_plat_commande)
+        totalHt = self._total_commande(self.get_plat_commande())
         tva = totalHt * (self.get_tva()/100)
         totalTTC = totalHt + tva
         return totalTTC
@@ -52,6 +53,13 @@ commande.ajout_plat(commande.get_num_commande(),"lasagne",10, "en cours")
 commande.ajout_plat(commande.get_num_commande(),"bolognaise",50, "en cours")
 commande.ajout_plat(commande.get_num_commande(),"pate a la carbonara",150, "en cours")
 print(f"votre commande coute : {commande.calcul_tva()}")
+
+
+commande2= Commande(2,"en cours",40)   
+commande2.ajout_plat(commande2.get_num_commande(),"lasagne",200, "en cours")
+commande2.ajout_plat(commande2.get_num_commande(),"bolognaise",300, "en cours")
+commande2.ajout_plat(commande2.get_num_commande(),"pate a la carbonara",150, "en cours")
+print(f"votre commande coute : {commande2.calcul_tva()}")
 
 
 
