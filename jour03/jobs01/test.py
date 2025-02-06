@@ -1,8 +1,20 @@
-def modifier(liste):
-    liste.append(99)
+class ClasseA:
+    def __init__(self, message):
+        self.message = message
 
-ma_liste = [1,2,3]
+    def afficher_message(self):
+        print(self.message)
 
-ma_liste2 = ma_liste
-modifier(ma_liste2)
-print(ma_liste)
+
+class ClasseB:
+    def __init__(self):
+        self.obj_a = None  # Initialisation à None
+
+    def creer_instance_de_A(self, message):
+        self.obj_a = ClasseA(message)  # Instanciation de ClasseA
+        self.obj_a.afficher_message()  # Appel d'une méthode de ClasseA
+
+
+# Utilisation
+b = ClasseB()
+b.creer_instance_de_A("Hello depuis ClasseA !")
